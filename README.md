@@ -1,10 +1,9 @@
 # Terra Schwartz React Test
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
 
-### `yarn start` or `npm run start`
+Run `npm install` to install dependencies 
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Run `yarn start` or `npm run start` to run the application and open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## File Structure
  - `src` : Contains all source code files
