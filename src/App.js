@@ -8,14 +8,15 @@ import { Provider } from 'react-redux';
 // MUI Imports
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 
 // File/Component Imports
 import store from './state';
 import UserTable from './features/UserTable';
-import DownloadUsers from './features/DownloadUsers';
 
 const useStyles = makeStyles({
-	root: {		
+	root: {				
+		textAlign: "center"		
 	}
 });
 
@@ -26,8 +27,7 @@ function App() {
 			<Typography variant="h2">
 				User Table
 			</Typography>
-			<UserTable />	
-			<DownloadUsers />
+			<UserTable />							
 		</div>
 	</Provider>;
 }

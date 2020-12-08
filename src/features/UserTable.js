@@ -25,18 +25,26 @@ import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 
 // File/Component Imports
 import { getUsers } from '../state/actions/users';
+import DownloadUsers from './DownloadUsers';
 
 const useStyles = makeStyles({
 	root: {
+		marginLeft: "auto",
+		marginRight: "auto",
 		width: "80%",
 	},
 	table: {
-	  maxHeight: "300px",
+		maxHeight: "300px"
 	},
 	row: {
-		'& > *': {
-		  borderBottom: 'unset',
+		"& > *": {
+		  borderBottom: "unset",
 		},
+	},
+	tableFooter: {
+		display: "flex",
+		flexDirection: "row",
+		justifyContent: "space-between"
 	}
 });
 
@@ -165,29 +173,34 @@ export default function UserTable() {
 	}
 
 	return <div className={classes.root}>
-		<TableContainer className={classes.table} component={Paper}>
-			<Table stickyHeader aria-label="user table">
-				<UserTableHead 
-					order={order}
-					orderBy={orderBy}
-					onRequestSort={handleRequestSort}
+		<Paper>
+			<TableContainer className={classes.table} component={Paper}>
+				<Table stickyHeader aria-label="user table">
+					<UserTableHead 
+						order={order}
+						orderBy={orderBy}
+						onRequestSort={handleRequestSort}
+					/>
+					<TableBody>
+						{users
+							.sort((x, y) => getComparator(order, orderBy)(x, y))
+							.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+							.map((user, i) => <UserTableRow key={i} user={user} />)}
+					</TableBody>
+				</Table>
+			</TableContainer>
+			<div className={classes.tableFooter}>
+				<DownloadUsers /> 
+				<TablePagination
+					rowsPerPageOptions={[2, 5, 10, 25]}
+					component="div"
+					count={users.length}
+					rowsPerPage={rowsPerPage}
+					page={page}
+					onChangePage={handleChangePage}
+					onChangeRowsPerPage={handleChangeRowsPerPage}
 				/>
-				<TableBody>
-					{users
-						.sort((x, y) => getComparator(order, orderBy)(x, y))
-						.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-						.map((user, i) => <UserTableRow key={i} user={user} />)}
-				</TableBody>
-			</Table>
-		</TableContainer>
-		<TablePagination
-			rowsPerPageOptions={[2, 5, 10, 25]}
-			component="div"
-			count={users.length}
-			rowsPerPage={rowsPerPage}
-			page={page}
-			onChangePage={handleChangePage}
-			onChangeRowsPerPage={handleChangeRowsPerPage}
-		/>
+			</div>
+		</Paper> 
 	</div>;
 }
