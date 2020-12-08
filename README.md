@@ -24,9 +24,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
     - [x] Pagination support
     - [x] Sorting
     - [x] Download CSV
-- [ ] Edit email
+- [ ] Edit email (bonus)
     - [ ] Make email column editable
     - [ ] Send update request to https://reqres.in/api/users
-- [ ] Clean up logging and formatting
+- [x] Clean up logging and formatting
 - [x] Extension tasks (if I have time)
     - [x] Display avatar images

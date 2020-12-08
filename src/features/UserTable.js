@@ -73,13 +73,13 @@ function UserTableHead(props) {
 					align="center"              
 					sortDirection={orderBy === attribute.id ? order : false}
 				>
-				<TableSortLabel
-					active={orderBy === attribute.id}
-					direction={orderBy === attribute.id ? order : 'asc'}
-					onClick={createSortHandler(attribute.id)}
-				>
-					{attribute.label}				
-				</TableSortLabel>
+					<TableSortLabel
+						active={orderBy === attribute.id}
+						direction={orderBy === attribute.id ? order : 'asc'}
+						onClick={createSortHandler(attribute.id)}
+					>
+						{attribute.label}
+					</TableSortLabel>
 				</TableCell>
 			))}
 		</TableRow>
@@ -90,10 +90,14 @@ function UserTableHead(props) {
 // Table row with capability for toggling collapsible info
 function UserTableRow({ user }) {
 	const { id, email, first_name, last_name, avatar} = user;
-
-	const classes = useStyles();
-	// TODO: Fix collapse being based on row instead of user (causes sorting bug)
+	
+	const classes = useStyles();	
 	const [avatarDetail, setAvatarDetail] = useState(false);
+	
+	// If user switching sorting changes the user in this row close the extra detail
+	useEffect(() => {
+		setAvatarDetail(false);
+	}, [id]);
 
 	return <React.Fragment>
 			<TableRow className={classes.row}>        

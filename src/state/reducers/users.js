@@ -1,7 +1,7 @@
 // Finnlay Ernst 2020
 // Purpose: Reducer mapping user related actions to state 
 
-import { GET_USERS_FULFILLED, GET_USERS_REJECTED } from '../actions/users';
+import { GET_USERS_FULFILLED, GET_USERS_REJECTED, SET_EMAIL } from '../actions/users';
 
 // Intialise to no users (empty array)
 const initialState = {
@@ -11,7 +11,7 @@ const initialState = {
 const usersReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_USERS_FULFILLED: {   
-            // Request fulfilled, set store user data in state         
+            // Request fulfilled, store user data in state         
             return {
                 ...state,
                 users: action.payload

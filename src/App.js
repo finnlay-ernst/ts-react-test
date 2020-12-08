@@ -8,7 +8,6 @@ import { Provider } from 'react-redux';
 // MUI Imports
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
 
 // File/Component Imports
 import store from './state';

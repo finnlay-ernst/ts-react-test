@@ -16,7 +16,7 @@ export default function DownloadUsers() {
     const users = useSelector(state => state.users);
 
     const handleDownloadClick = (event) => {
-        // Construct a simple CSV (not maintaining table ordering here)
+        // Construct a simple CSV
         const builder = new CsvBuilder("users.csv");
         builder
             .setColumns(["ID", "Email", "First Name", "Last Name"])
