@@ -3,6 +3,7 @@ import axios from 'axios';
 export const GET_USERS_FULFILLED = 'GET_USERS_FULFILLED';
 export const GET_USERS_REJECTED = 'GET_USERS_REJECTED';
 
+// Sucessful GET request action
 const getUsersFulfilled = users => {
     return {
         type: GET_USERS_FULFILLED,
@@ -10,6 +11,7 @@ const getUsersFulfilled = users => {
     }
 }
 
+// Request failure action
 const getUsersRejected = err => {    
     return {
         type: GET_USERS_REJECTED,
@@ -17,6 +19,7 @@ const getUsersRejected = err => {
     }
 }
 
+// Action creator for getting user data
 export const getUsers = () => {    
     return dispatch => {        
         return axios.get("https://reqres.in/api/users")

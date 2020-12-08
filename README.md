@@ -9,7 +9,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ## Tasks
 - [x] Create project and remove unnecessary boilerplate
 - [x] Create redux store
-- [X] Fetch data from API https://reqres.in/api/users
+- [X] Fetch data from API (https://reqres.in/api/users)
 - [ ] Display data in table
     - [ ] Create basic table (sticky header & handle content overflow)
     - [ ] Expandable rows
@@ -20,5 +20,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 - [ ] Edit email
     - [ ] Make email column editable
     - [ ] Send update request to https://reqres.in/api/users
+- [] Clean up logging and formatting
 - [ ] Extension tasks (if I have time)
     - [ ] Display avatar images
