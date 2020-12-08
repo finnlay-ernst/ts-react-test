@@ -10,6 +10,7 @@ export default function DownloadUsers() {
     const users = useSelector(state => state.users);
 
     const handleDownloadClick = (event) => {
+        // Construct a simple CSV (not maintaining table ordering here)
         const builder = new CsvBuilder("users.csv");
         builder
             .setColumns(["ID", "Email", "First Name", "Last Name"])
@@ -17,7 +18,7 @@ export default function DownloadUsers() {
             .exportFile();
     };
 
-    return <IconButton color="primary" aria-label="download data" onClick={handleDownloadClick}>
+    return <IconButton color="primary" size="medium" aria-label="download data" onClick={handleDownloadClick}>
         <GetAppIcon />
     </IconButton>;
 }

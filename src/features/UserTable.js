@@ -13,6 +13,8 @@ import TableRow from '@material-ui/core/TableRow';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
 import TablePagination from '@material-ui/core/TablePagination';
 import Paper from '@material-ui/core/Paper';
+import Avatar from '@material-ui/core/Avatar';
+
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 
@@ -31,36 +33,6 @@ const useStyles = makeStyles({
 		},
 	}
 });
-
-// Table row with capability for toggling collapsible info
-function UserTableRow({ user }) {
-	const { id, email, first_name, last_name, avatar} = user;
-
-	const classes = useStyles();
-	// TODO: Fix collapse being based on row instead of user (causes sorting bug)
-	const [avatarDetail, setAvatarDetail] = useState(false);
-
-	return <React.Fragment>
-			<TableRow className={classes.row}>        
-				<TableCell>
-					<IconButton aria-label="avatar detail button" size="small" onClick={() => setAvatarDetail(!avatarDetail)}>
-						{avatarDetail ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}                        
-					</IconButton>
-				</TableCell>
-				<TableCell component="th" scope="row">{id}</TableCell>
-				<TableCell align="left">{email}</TableCell>
-				<TableCell align="left">{first_name}</TableCell>
-				<TableCell align="left">{last_name}</TableCell>                
-			</TableRow>
-			<TableRow>
-				<TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={5}>
-					<Collapse in={avatarDetail} timeout="auto" unmountOnExit>
-						Avatar Link: {avatar}
-					</Collapse>
-				</TableCell>
-			</TableRow>
-	</React.Fragment>
-}
 
 const columns = [
 	{id: "id", label: "ID"}, 
@@ -98,6 +70,37 @@ function UserTableHead(props) {
 		</TableRow>
 	  </TableHead>
 	);
+}
+
+// Table row with capability for toggling collapsible info
+function UserTableRow({ user }) {
+	const { id, email, first_name, last_name, avatar} = user;
+
+	const classes = useStyles();
+	// TODO: Fix collapse being based on row instead of user (causes sorting bug)
+	const [avatarDetail, setAvatarDetail] = useState(false);
+
+	return <React.Fragment>
+			<TableRow className={classes.row}>        
+				<TableCell>
+					<IconButton aria-label="avatar detail button" size="small" onClick={() => setAvatarDetail(!avatarDetail)}>
+						{avatarDetail ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}                        
+					</IconButton>
+				</TableCell>
+				<TableCell component="th" scope="row">{id}</TableCell>
+				<TableCell align="left">{email}</TableCell>
+				<TableCell align="left">{first_name}</TableCell>
+				<TableCell align="left">{last_name}</TableCell>                
+			</TableRow>
+			<TableRow>
+				<TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={5}>
+					<Collapse in={avatarDetail} timeout="auto" unmountOnExit>
+						<Avatar alt={`${first_name} ${last_name}`} src={avatar} />
+						Avatar Link: {avatar}
+					</Collapse>
+				</TableCell>
+			</TableRow>
+	</React.Fragment>
 }
 
 // Basic comparator, takes in two objects and a property to compare them on
