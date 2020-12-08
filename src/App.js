@@ -3,7 +3,6 @@ import { Provider } from 'react-redux';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
 
 import store from './state';
 import UserTable from './features/UserTable';
