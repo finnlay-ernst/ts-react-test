@@ -8,7 +8,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Tasks
 - [x] Create project and remove unnecessary boilerplate
-- [ ] Create redux store
+- [x] Create redux store
 - [ ] Fetch data from API https://reqres.in/api/users
 - [ ] Display data in table
     - [ ] Create basic table (sticky header & handle content overflow)
