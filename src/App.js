@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 
 import store from './state';
 import UserTable from './features/UserTable';
+import DownloadUsers from './features/DownloadUsers';
 
 const useStyles = makeStyles({
 	root: {		
@@ -19,7 +20,8 @@ function App() {
 			<Typography variant="h2">
 				User Table
 			</Typography>
-			<UserTable />			
+			<UserTable />	
+			<DownloadUsers />
 		</div>
 	</Provider>;
 }
