@@ -1,3 +1,6 @@
+// Finnlay Ernst 2020
+// Purpose: Actions relating to acquiring user data from the API endpoint 
+
 import axios from 'axios';
 
 export const GET_USERS_FULFILLED = 'GET_USERS_FULFILLED';
@@ -23,13 +26,11 @@ const getUsersRejected = err => {
 export const getUsers = () => {    
     return dispatch => {        
         return axios.get("https://reqres.in/api/users")
-        .then(({ data }) => {
-            console.log("success", data);
+        .then(({ data }) => {            
             // Save data in state using the fulfilled action
             dispatch(getUsersFulfilled(data.data));            
         })
-        .catch(err => {
-            console.log("error", err);            
+        .catch(err => {               
             dispatch(getUsersRejected(err));
         });
     }

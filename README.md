@@ -6,6 +6,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+## File Structure
+ - `src` : Contains all source code files
+ - `features` : All the React components written to achieve the desired funtionality
+ - `state` : Everything related to redux state management including the redux store and sub folders for reducers & actions (can be easily expanded)
+ 
+ See files for descriptions of their purpose.
+
 ## Tasks
 - [x] Create project and remove unnecessary boilerplate
 - [x] Create redux store

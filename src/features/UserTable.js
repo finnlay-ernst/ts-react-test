@@ -1,6 +1,11 @@
+// Finnlay Ernst 2020
+// Purpose: Table for displaying user data. Includes sorting & pagination among other features. Largely based on MUI library examples (see https://material-ui.com/). 
+
+// React & Redux Imports
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
+// MUI Imports
 import { makeStyles } from '@material-ui/core/styles';
 import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
@@ -18,6 +23,7 @@ import Avatar from '@material-ui/core/Avatar';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 
+// File/Component Imports
 import { getUsers } from '../state/actions/users';
 
 const useStyles = makeStyles({
@@ -34,6 +40,7 @@ const useStyles = makeStyles({
 	}
 });
 
+// Table columns (id is corresponding the name of the property in the user object)
 const columns = [
 	{id: "id", label: "ID"}, 
 	{id: "email", label: "Email"}, 
@@ -116,6 +123,7 @@ const comparator = (x, y, property) => {
 	}
 }
 
+// Returns appropriate comparator for ordering (asc or desc)
 const getComparator = (order, orderBy) => {
 	// TODO: stable sorting to prevent elements being needlessly switched
 	return order === 'desc'
