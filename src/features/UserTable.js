@@ -1,5 +1,6 @@
 // Finnlay Ernst 2020
-// Purpose: Table for displaying user data. Includes sorting & pagination among other features. Largely based on MUI library examples (see https://material-ui.com/). 
+// Purpose: Table for displaying user data. Includes sorting & pagination among other features. 
+// Largely based on MUI library examples (see https://material-ui.com/, particularly https://material-ui.com/components/tables/#table). 
 
 // React & Redux Imports
 import React, { useState, useEffect } from 'react';
@@ -92,6 +93,7 @@ function UserTableRow({ user }) {
 	const { id, email, first_name, last_name, avatar} = user;
 	
 	const classes = useStyles();	
+	// Should probably store this in state in the parent component for better control
 	const [avatarDetail, setAvatarDetail] = useState(false);
 	
 	// If user switching sorting changes the user in this row close the extra detail
