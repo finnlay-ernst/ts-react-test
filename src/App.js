@@ -10,10 +10,11 @@ import UserTable from './features/UserTable';
 const useStyles = makeStyles({
 	root: {
 		width: "100%",
-		display: "flex",
-		flexDirection: "column",
-		alignItems: "center",
-		justifyContent: "center",
+		height: "100%",
+		// display: "flex",
+		// flexDirection: "column",
+		// alignItems: "center",
+		// justifyContent: "center",		
 	}
 });
 

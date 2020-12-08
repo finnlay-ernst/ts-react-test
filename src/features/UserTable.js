@@ -18,8 +18,10 @@ import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import { getUsers } from '../state/actions/users';
 
 const useStyles = makeStyles({
+    root: {
+        width: "80%",
+    },
     table: {
-      width: "100%",
       maxHeight: "300px",
     },
     row: {
@@ -35,7 +37,7 @@ function UserTableRow({ user }) {
     const classes = useStyles();
     const [avatarDetail, setAvatarDetail] = useState(false);
 
-    return  <React.Fragment>
+    return <React.Fragment>
             <TableRow className={classes.row}>        
                 <TableCell>
                     <IconButton aria-label="avatar detail button" size="small" onClick={() => setAvatarDetail(!avatarDetail)}>
@@ -74,11 +76,14 @@ export default function UserTable() {
     
     const handleChangeRowsPerPage = (event) => {
         setRowsPerPage(parseInt(event.target.value, 10));
+        setPage(0);
     }
 
-    const handleChangePage = () => {}
+    const handleChangePage = (event, newPage) => {
+        setPage(newPage);
+    }
 
-    return <div>
+    return <div className={classes.root}>
         <TableContainer className={classes.table} component={Paper}>
             <Table stickyHeader aria-label="user table">
                 <TableHead>
@@ -98,13 +103,13 @@ export default function UserTable() {
             </Table>
         </TableContainer>
         <TablePagination
-          rowsPerPageOptions={[2, 5, 10, 25]}
-          component="div"
-          count={users.length}
-          rowsPerPage={rowsPerPage}
-          page={page}
-          onChangePage={handleChangePage}
-          onChangeRowsPerPage={handleChangeRowsPerPage}
+            rowsPerPageOptions={[2, 5, 10, 25]}
+            component="div"
+            count={users.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onChangePage={handleChangePage}
+            onChangeRowsPerPage={handleChangeRowsPerPage}
         />
     </div>;
 }

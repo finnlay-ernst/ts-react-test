@@ -14,7 +14,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
     - [x] Create basic table (sticky header & handle content overflow)
     - [x] Expandable rows
     - [x] Limit rows
-    - [ ] Pagination support
+    - [x] Pagination support
     - [ ] Sorting
     - [ ] Download CSV
 - [ ] Edit email
